@@ -1,0 +1,54 @@
+﻿<Window x:Class="ResourcePeldak.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ResourcePeldak"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    <Window.Resources>
+        <!--1. példa: SolidColorBrush fő háttérszín-->
+        <SolidColorBrush x:Key="FoHatterSzin"
+                         Color="DimGray"></SolidColorBrush>
+        <!--2. példa: Cégszín-->
+        <Color x:Key="CegSzine">#FF004488</Color>
+        <SolidColorBrush x:Key="CegSzineEcset"
+                         Color="{StaticResource CegSzine}"></SolidColorBrush>
+        <!--3. példa: Gomb stílus-->
+        <Style x:Key="AlapGombStilus"
+               TargetType="Button">
+            <Setter Property="Background"
+                    Value="LightGreen"></Setter>
+            <Setter Property="Foreground"
+                    Value="DarkGreen"></Setter>
+            <Setter Property="Width"
+                    Value="200"></Setter>
+            <Setter Property="FontWeight"
+                    Value="Bold"></Setter>
+        </Style>
+        <!-- 4. Alap keret -->
+        <Thickness x:Key="AlapKeretVastagsag">10,10,10,10</Thickness>
+        <!-- 5.  Betűméret és betűtípus erőforrások -->
+        <FontFamily x:Key="CimsorBetűtipus">Arial</FontFamily>
+        <!-- Sarokkerekítés-->
+        <CornerRadius x:Key="Sarok">20</CornerRadius>
+    </Window.Resources>
+    <Grid Background="{StaticResource FoHatterSzin}">
+        <StackPanel>
+            <TextBlock Text="A cég színe"
+                       Foreground="{StaticResource CegSzineEcset}"></TextBlock>
+            <Button Content="Stílusos Gomb"
+                    Margin="{StaticResource AlapKeretVastagsag}"
+                    Style="{StaticResource AlapGombStilus}"></Button>
+            <TextBlock FontFamily="{StaticResource CimsorBetűtipus}"
+                       FontSize="30">Betűtípus</TextBlock>
+            <Border Background="Blue"
+                    CornerRadius="{StaticResource Sarok}">
+                <TextBlock Text="Kerekített textbloxk"
+                           Padding="10,0,0,0"></TextBlock>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>
